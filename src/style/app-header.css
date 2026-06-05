@@ -1,0 +1,284 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 1.5rem var(--page-padding);
+  font-weight: 500;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.list li {
+  list-style-type: none;
+  margin: 0 1em;
+}
+
+.list a {
+  text-decoration: none;
+  color: black;
+}
+
+.list a:visited {
+  color: black;
+}
+
+.list a:hover {
+  font-weight: bold;
+}
+
+.log {
+  background-color: black;
+  border: none;
+  color: rgb(242, 239, 235);
+  padding: 1em 4em;
+  font-weight: bold;
+  cursor: pointer;
+  width: 7em;
+  border-radius: 5px;
+}
+
+.burger-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0 6px 0; /* Added bottom padding for optical alignment */
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 66%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.logo-container a {
+  display: flex;
+  align-items: center;
+}
+
+.btn-link {
+  display: flex;
+  align-items: center;
+  width: 66%;
+}
+
+/* User Nav Actions (Modern Dashboard / Profile Layout) */
+.user-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+}
+
+.btn-dashboard {
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  font-size: 0.95em;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.btn-dashboard:hover,
+.btn-dashboard:active {
+  color: #4a4a4a;
+}
+
+.btn-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: #f2efeb; /* LRC bg color */
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  gap: 8px;
+}
+
+.profile-text {
+  display: none;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.btn-profile:hover,
+.btn-profile:active {
+  background-color: black;
+  color: rgb(242, 239, 235);
+}
+
+.log-out-ghost {
+  background-color: transparent;
+  color: black;
+  border: 2px solid #e0e0e0;
+  padding: 0.5em 1.25em;
+  font-weight: 600;
+  border-radius: 8px;
+  width: auto;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+
+.log-out-ghost:hover,
+.log-out-ghost:active {
+  background-color: black;
+  color: rgb(242, 239, 235);
+  border-color: black;
+}
+
+@media (max-width: 599px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1em;
+  }
+
+  .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding-top: 1em;
+  }
+
+  .nav-container.open {
+    display: flex;
+  }
+
+  .list {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .list li {
+    margin: 1em 0;
+  }
+
+  .log {
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  .btn-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-nav-actions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1em;
+    padding-top: 1.5em;
+    border-top: 1px solid #e0e0e0;
+    gap: 1em;
+  }
+
+  .btn-dashboard {
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    display: block;
+  }
+
+  .profile-text {
+    display: block;
+  }
+
+  .btn-profile {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    padding: 1em;
+    background-color: transparent;
+  }
+
+  .log-out-ghost {
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 1em; /* Matches .log padding on mobile */
+  }
+}
+
+@media (min-width: 600px) {
+  .nav-container {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .log {
+    font-size: 1em;
+    padding: 1em;
+  }
+
+  .logo {
+    max-width: 150px;
+    height: auto;
+  }
+
+  .btn-link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .list {
+    margin-left: 7em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .list {
+    margin-left: 13em;
+  }
+}

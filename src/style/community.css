@@ -1,0 +1,186 @@
+/* Community Page - Mockup Design */
+
+.community-page {
+    background-color: rgb(242, 239, 235);
+    /* Crisp background matching the mockup exactly */
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+    /* Header offset */
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Large Hero Container */
+.community-hero-container {
+    width: 100%;
+    height: 70vh;
+    /* Taller vertically as requested */
+    max-height: 800px;
+    min-height: 480px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.community-hero-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* prevent baseline inline gaps */
+    object-fit: cover;
+    object-position: 40% 60%;
+    transform: scale(1.25); /* Zoom in 25% to focus closer on the group */
+    transform-origin: 20% 60%; /* Anchors the zoom on the left, cropping empty space on the right */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Color Bar Divider */
+.color-bar-divider {
+    max-width: 1100px;
+    width: calc(100% - 2 * var(--page-padding));
+    height: 10px;
+    /* Standard 10px height */
+    display: flex;
+    margin: 3rem auto 5rem auto;
+    /* Top spacing of 3rem, bottom spacing of 5rem, centered with side margins */
+    padding: 0;
+    border-radius: 5px;
+    /* Subtle rounding since it is a boxed element */
+    overflow: hidden;
+    /* Clips stripes to the rounded corners */
+}
+
+.divider-stripe {
+    flex: 1;
+    height: 100%;
+}
+
+.bg-teal {
+    background-color: #0D9488;
+}
+
+.bg-orange {
+    background-color: #FD844A;
+}
+
+.bg-purple {
+    background-color: #B398FC;
+}
+
+.bg-raspberry {
+    background-color: #C72C5B;
+}
+
+.bg-olive {
+    background-color: #55664C;
+}
+
+/* 3. Our Values Section */
+.community-values-section {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--page-padding) 6rem var(--page-padding);
+    /* Removed large top padding since color-bar divider handles spacing */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.values-main-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #1a2536;
+    margin: 0 0 5rem 0;
+    letter-spacing: -0.03em;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+/* 2x2 Values Grid */
+.community-values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8rem;
+    /* Wide gaps as in mockup */
+    row-gap: 5rem;
+    width: 100%;
+}
+
+/* Card layout */
+.value-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.value-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.value-label {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: #0D9488;
+    letter-spacing: 0.15em;
+}
+
+.value-accent-line {
+    width: 100%;
+    /* Stretched accent line as it originally was */
+    height: 3px;
+    border-radius: 1.5px;
+}
+
+.value-card-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #000000;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.value-card-desc {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #4A5568;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive grid design */
+@media (max-width: 900px) {
+    .community-values-grid {
+        grid-template-columns: 1fr;
+        row-gap: 4rem;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .community-hero-container {
+        height: 40vh;
+    }
+
+    .values-main-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .value-card-title {
+        font-size: 1.8rem;
+    }
+
+    .value-card-desc {
+        font-size: 1rem;
+    }
+}

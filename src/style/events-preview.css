@@ -1,0 +1,189 @@
+/* Events Section Container */
+.events-section {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 6rem 0;
+    font-family: 'Jost', sans-serif;
+    /* Assuming Jost is main font */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.events-header {
+    padding: 0 var(--page-padding);
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.events-title {
+    font-size: 15vw;
+    /* Massive title */
+    line-height: 0.8;
+    margin: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+.dot-blue {
+    color: rgb(0, 151, 178);
+}
+
+.events-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+    color: rgb(253, 132, 74);
+    /* Orange accent */
+    text-transform: uppercase;
+    margin-right: 1rem;
+}
+
+/* Grid Layout */
+.events-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0 var(--page-padding);
+    gap: 3rem;
+    height: auto;
+}
+
+/* Desktop: Horizontal Scroll */
+@media (min-width: 1024px) {
+    .events-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 1.5rem;
+        padding: 0 var(--page-padding);
+        height: 85vh;
+        min-height: 600px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .events-grid::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Card Styles */
+.event-card {
+    width: 100%;
+    /* Full width on mobile PADDED */
+    height: auto;
+    min-height: 50vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    cursor: pointer;
+    font-family: inherit;
+    /* Use Jost */
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Separator on mobile */
+    box-sizing: border-box;
+    /* Ensure padding is inside width */
+}
+
+@media (min-width: 1024px) {
+    .event-card {
+        flex: 0 0 30vw;
+        /* Slightly smaller to see gaps */
+        height: 100%;
+        border-right: none;
+        /* Removed border since we have gap */
+        border-bottom: none;
+        padding: 3rem 2rem;
+        /* Reduced padding on desktop slightly */
+        scroll-snap-align: start;
+        background-color: #F2EFEB;
+        /* Default bg if not hovered */
+    }
+}
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.event-date {
+    font-size: 0.9rem;
+    font-weight: 700;
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+}
+
+.event-name {
+    font-size: 2.5rem;
+    /* Large title */
+    line-height: 0.95;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    max-width: 10ch;
+    /* Wrap nicely */
+}
+
+.event-info {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.separator {
+    opacity: 0.5;
+}
+
+/* Bottom Section */
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-divider {
+    height: 1px;
+    width: 100%;
+    transition: background-color 0.4s ease;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-details {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.arrow-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover .arrow-icon {
+    transform: translate(5px, -5px);
+}

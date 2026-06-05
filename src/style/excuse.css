@@ -1,0 +1,158 @@
+.excuse-container {
+    padding: 4rem var(--page-padding);
+    width: 100%;
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    color: black;
+    background-color: #F2EFEB;
+}
+
+.excuse-content {
+    display: flex;
+    flex-direction: column;
+    /* Mobile first: Stacked */
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* LEFT COLUMN */
+.excuse-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.excuse-title {
+    font-size: 3.5rem;
+    line-height: 0.9;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.text-pink {
+    color: rgb(213, 45, 93);
+}
+
+.excuse-quote {
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.quote-bar {
+    width: 6px;
+    background-color: rgb(66, 78, 52);
+    /* Dark Green */
+    margin: 0;
+    min-height: 100%;
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #333;
+    margin: 0;
+    width: 100%;
+}
+
+/* RIGHT COLUMN */
+.excuse-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    /* Center image on mobile */
+}
+
+.excuse-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border: 15px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    /* Prevent border from adding to width */
+}
+
+.excuse-subtitle {
+    font-size: 1.25rem;
+    /* Smaller for mobile to prevent overflow */
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    /* Center on mobile per "one by one" feeling */
+    max-width: 100%;
+    margin: 1rem auto;
+    /* Center block */
+    color: black;
+}
+
+.underline-orange {
+    border-bottom: 4px solid rgb(253, 132, 74);
+    display: inline-block;
+    line-height: 1.4;
+}
+
+/* MEDIA QUERIES */
+
+/* Medium + Desktop: 2 Columns */
+@media (min-width: 768px) {
+    .excuse-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .excuse-title {
+        font-size: 5vw;
+        /* Slightly smaller scale */
+    }
+
+    .excuse-right {
+        align-items: flex-end;
+        /* Align image right */
+    }
+
+    .excuse-subtitle {
+        text-align: right;
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 1.5rem;
+        /* Restore size */
+        max-width: 400px;
+    }
+}
+
+/* Full Desktop: Custom Offset */
+@media (min-width: 1024px) {
+    .excuse-container {
+        padding: 6rem 5vw;
+    }
+
+    .excuse-right {
+        margin-top: 6rem;
+        /* "Little more top margin" */
+    }
+
+    .excuse-title {
+        font-size: 5rem;
+        /* Cap size */
+    }
+
+    .quote-text {
+        font-size: 1.25rem;
+    }
+
+    .excuse-subtitle {
+        font-size: 2rem;
+    }
+}

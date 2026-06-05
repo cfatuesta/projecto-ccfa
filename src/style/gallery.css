@@ -1,0 +1,462 @@
+/* content from user reference HTML for Gallery */
+/* Basic Reset/Setup */
+.gallery-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(242, 239, 235);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Jost", sans-serif;
+}
+
+/* Backgrounds Layer */
+.bg-container {
+  position: absolute;
+  /* Changed from fixed to absolute to respect parent container flow */
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* Height matches container, no top offset needed as container starts after header */
+}
+
+.gallery-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.gallery-bg.active {
+  opacity: 1; /* Fully visible background image, exactly as the original */
+}
+
+/* Main Layout */
+.gallery-main {
+  position: relative;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem var(--page-padding);
+  flex: 1;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1280px;
+  gap: 3rem;
+  /* default gap */
+}
+
+/* SVG Line */
+.svg-section {
+  width: 220px;
+  /* Base width for mobile */
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 1024px) {
+  .svg-section {
+    width: 400px;
+  }
+
+  .content-wrapper {
+    gap: 3rem;
+  }
+}
+
+.city-svg {
+  width: 100%;
+  height: auto;
+  fill: none;
+  overflow: visible;
+}
+
+.line-logo-path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  /* Drawing Animation */
+  animation: dash 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Bars Section */
+.bars-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 42rem;
+  /* Pull bars closer to the line globally (mobile) */
+  margin-left: -100px;
+}
+
+@media (min-width: 1024px) {
+  .bars-section {
+    gap: 2rem;
+    /* Pull bars closer on desktop too */
+    margin-left: -140px;
+  }
+}
+
+/* Individual Bar Row */
+.city-bar-row {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.logo-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+  transition:
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    filter 0.3s ease;
+  opacity: 0;
+  /* Initial for JS fade in */
+  transform: translateX(-40px);
+  /* Initial for JS fade in */
+}
+
+/* 
+   ------------------------------------------
+   RESPONSIVE BAR WIDTHS & MARGINS
+   ------------------------------------------
+*/
+
+/* Defaults (Mobile / Tablet) - SVG is smaller (220px) */
+/* RESTORED STAGGERED LOOK FOR MOBILE */
+.bar-new-york {
+  width: 55%;
+  min-width: 140px;
+}
+
+.bar-washington {
+  width: 75%;
+  min-width: 160px;
+  margin-left: 5%;
+}
+
+.bar-boston {
+  width: 85%;
+  min-width: 130px;
+  margin-left: 10%;
+}
+
+.bar-atlanta {
+  width: 65%;
+  min-width: 140px;
+  margin-left: 20%;
+}
+
+.bar-london {
+  width: 55%;
+  min-width: 140px;
+  margin-left: 15%;
+}
+
+/* Tablet (Middle) - Same staggered look (can adjust if needed) */
+@media (min-width: 768px) {
+  /* Keep defaults or fine tune */
+}
+
+/* Desktop - SVG is larger (400px), curves are wider */
+@media (min-width: 1024px) {
+  .bar-new-york {
+    width: 45%;
+    margin-left: 0;
+  }
+
+  .bar-washington {
+    width: 65%;
+    margin-left: 10%;
+  }
+
+  .bar-boston {
+    width: 85%;
+    margin-left: 25%;
+  }
+
+  .bar-atlanta {
+    width: 55%;
+    margin-left: 45%;
+  }
+
+  .bar-london {
+    width: 40%;
+    margin-left: 35%;
+  }
+}
+
+/* Hover Effect for Bar */
+.city-bar-row:hover .logo-bar {
+  transform: scaleX(1.05);
+  /* slightly scale width */
+  filter: brightness(1.1);
+  /* Shading/Glow effect with matching color */
+  box-shadow: 0 0 20px var(--city-color);
+}
+
+/* City Label */
+.city-label {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: white !important; /* Premium high contrast white text inside the colored bar */
+  text-shadow: none !important; /* Removed text shadow completely */
+  opacity: 1 !important; /* Always visible */
+  pointer-events: none;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 768px) {
+  .city-label {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+  }
+  .logo-bar {
+    padding-right: 0.8rem !important;
+  }
+}
+
+/* --------------------------
+   DETAIL SECTION STYLES
+   -------------------------- */
+.city-detail-section {
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  padding: 6rem var(--page-padding);
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.5s ease;
+  position: relative;
+  z-index: 50;
+}
+
+.city-content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .city-content-wrapper {
+    grid-template-columns: 1.2fr 1fr;
+    /* Left content, Right collage/stats */
+    align-items: start;
+  }
+}
+
+/* ANIMATIONS */
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HEADER AREA */
+.city-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.city-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.city-title {
+  font-size: 4rem;
+  line-height: 0.9;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.city-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .city-title {
+    font-size: 6rem;
+  }
+}
+
+/* ACTIONS */
+.city-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.city-btn {
+  padding: 1rem 2rem;
+  border: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+}
+
+.btn-primary {
+  background: white;
+  color: black;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* COLLAGE */
+.city-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 200px 200px;
+  gap: 1rem;
+  position: relative;
+}
+
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.collage-item:hover img {
+  transform: scale(1.1);
+}
+
+.collage-1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  /* Tall image */
+}
+
+.collage-2 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.collage-3 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background: black;
+  /* Contrast block */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collage-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: white;
+  z-index: 10;
+}
+
+/* STATS */
+.city-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  grid-column: 1 / -1;
+  /* Span full width */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin-top: 0.25rem;
+}

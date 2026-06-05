@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;700;800;900&display=swap');
+
+.washington-container {
+    background-color: rgb(253, 132, 74);
+    /* brand-orange */
+    font-family: 'Lexend', sans-serif;
+    color: black;
+    min-height: 100vh;
+    position: relative;
+    z-index: 50;
+    /* Ensure on top */
+    width: 100%;
+}
+
+.washington-container ::selection {
+    background-color: black;
+    color: white;
+}
+
+/* Header Sticky & Blend Mode mimic */
+/* Note: The user's code had a sticky header with mix-blend-difference.
+   Since we are inside a layout that might not support sticky header easily without changing global layout,
+   we will focus on the aesthetic styles for now. */
+
+/* Utilities mimics */
+.wa-header-section {
+    padding: 3rem 1.5rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .wa-header-section {
+        padding: 3rem 3rem 1.5rem;
+    }
+}
+
+.wa-chapter-label {
+    letter-spacing: 0.5em;
+    margin-bottom: 1rem;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.wa-city-title {
+    font-size: 12vw;
+    line-height: 0.8;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    margin: 0;
+}
+
+.wa-intro-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.25;
+    text-transform: uppercase;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Gallery Scroll */
+.wa-gallery-scroll {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: 1rem;
+    padding: 2.5rem 1.5rem;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE */
+}
+
+.wa-gallery-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .wa-gallery-scroll {
+        padding: 2.5rem 3rem;
+    }
+}
+
+.wa-gallery-item {
+    flex: 0 0 75vw;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .wa-gallery-item {
+        flex: 0 0 45vw;
+        /* Adjust for desktop to show more context if needed, or keep 75vw */
+    }
+}
+
+.wa-gallery-img {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s ease;
+    /* duration-700 */
+    /* Add default filter transition if we change filters */
+}
+
+/* Specific filter classes to match inline styles from design */
+.wa-filter-grayscale {
+    filter: grayscale(100%) contrast(150%);
+}
+
+.wa-gallery-item:hover .wa-gallery-img {
+    transform: scale(1.05);
+}
+
+.wa-card-title {
+    color: white;
+    font-size: 3.75rem;
+    /* 6xl */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    opacity: 0;
+    transform: translateY(1rem);
+    /* translate-y-4 */
+    transition: all 0.5s;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Added for readability just in case */
+}
+
+@media (min-width: 768px) {
+    .wa-card-title {
+        font-size: 6rem;
+        /* 8xl approx */
+    }
+}
+
+.wa-gallery-item:hover .wa-card-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Grids */
+.grid-cols-1 {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.gap-20 {
+    gap: 5rem;
+}
+
+.gap-12 {
+    gap: 3rem;
+}
+
+.border-t-2 {
+    border-top-width: 2px;
+}
+
+.border-black\/10 {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.wa-load-more {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}

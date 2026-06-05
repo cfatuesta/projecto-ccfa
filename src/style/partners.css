@@ -1,0 +1,165 @@
+/* Partners Page Styles (Mockup Design) */
+
+.partners-page {
+    background-color: rgb(242, 239, 235); /* Same cream/light gray background from mockup */
+    color: #1a2536;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 120px var(--page-padding) 6rem var(--page-padding); /* Spacious top padding for header offset */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.partners-container {
+    max-width: 750px; /* Aligns content centrally in a compact, clean format */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Centered Intro Text */
+.partners-intro-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    width: 100%;
+}
+
+.partners-intro-container {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+}
+
+.partners-intro-text {
+    font-size: 1.8rem; /* Matches the About page size exactly */
+    line-height: 1.5;
+    font-weight: 500;
+    color: #1A2536;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin: 0;
+}
+
+.partners-intro-bar {
+    width: 2.5rem;
+    height: 3px;
+    background-color: #F26522; /* Brand orange color */
+    margin: 2.5rem auto 0 auto;
+    border-radius: 2px;
+}
+
+/* 2. Main Title */
+.partners-section-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #1a2536;
+    text-align: center;
+    margin: 0 0 5rem 0;
+    letter-spacing: -0.02em;
+}
+
+/* 3. Ways Rows */
+.ways-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem; /* Spacious vertical gaps between rows */
+    margin-bottom: 6rem;
+    width: 100%;
+}
+
+.way-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.way-name {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #1a2536;
+    letter-spacing: -0.02em;
+}
+
+/* Common Button Styles */
+.btn-way {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    text-align: center;
+    min-width: 220px;
+}
+
+.btn-way:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Purple Buttons */
+.purple-btn {
+    background-color: #9283B4; /* Beautiful lavender-purple color from mockup */
+    color: #000000; /* Black bold text */
+}
+
+/* 4. Bottom Member CTA */
+.member-cta-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.member-btn {
+    background-color: #ffffff; /* Pure white button from mockup */
+    color: #000000; /* Black bold text */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Responsive elements */
+@media (max-width: 768px) {
+    .partners-intro-text {
+        font-size: 1.35rem;
+        line-height: 1.45;
+    }
+    .partners-intro-bar {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .partners-section-title {
+        font-size: 2.8rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .way-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .way-name {
+        font-size: 2.2rem;
+    }
+
+    .btn-way {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .ways-list {
+        gap: 3.5rem;
+        margin-bottom: 4.5rem;
+    }
+}

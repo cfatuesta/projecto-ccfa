@@ -1,0 +1,374 @@
+/* City Washington Green Theme */
+:root {
+    --dc-green: #3A4D39;
+    --dc-green-dark: #2F3E2F;
+    --dc-bg: #4A5D49;
+}
+
+/* Container */
+.dc-container {
+    background-color: var(--dc-green);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 6rem;
+}
+
+.dc-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 1. Header */
+.dc-header-section {
+    position: relative;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+.dc-subtitle {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.dc-title {
+    font-size: 12vw;
+    font-weight: 900;
+    line-height: 0.8;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .dc-title {
+        font-size: 8rem;
+    }
+}
+
+.dc-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2rem;
+    opacity: 0.9;
+    display: block;
+    margin-top: 1rem;
+}
+
+.dc-btn-top-cta {
+    position: absolute;
+    top: 6rem;
+    right: 0;
+    background: white;
+    color: var(--dc-green-dark);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .dc-btn-top-cta {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+        display: inline-flex;
+    }
+}
+
+.dc-btn-top-cta:hover {
+    transform: translateY(-2px);
+}
+
+
+/* 2. Grid System */
+.dc-bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+}
+
+@media (min-width: 900px) {
+    .dc-bento-grid {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 400px 300px;
+    }
+
+    /* Large Hero Left */
+    .dc-card-hero {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    /* Side Column Right */
+    .dc-col-side {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        /* Span down */
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Wide Bottom */
+    .dc-card-wide {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+}
+
+/* Card Base */
+.dc-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dc-card-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.dc-card:hover .dc-card-bg {
+    transform: scale(1.05);
+}
+
+.dc-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%);
+}
+
+.dc-card-content {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 10;
+}
+
+.dc-label-small {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.dc-card-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Side Column Specifics */
+.dc-card-social {
+    background: rgba(255, 255, 255, 0.15);
+    /* Lighter green/translucent */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    flex: 1;
+}
+
+.dc-icon-tree {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.dc-card-sub {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.dc-card-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.dc-loc-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.dc-next-row {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.dc-card-visual {
+    height: 200px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dc-card-visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dc-play-btn {
+    position: relative;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wide Card Text */
+.dc-card-text-lg {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+
+/* 3. Stats Section */
+.dc-stats-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+    .dc-stats-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.dc-stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    /* Very subtle */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.dc-stat-val {
+    font-size: 3rem;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.dc-stat-lbl {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+}
+
+
+/* 4. Footer RSVP */
+.dc-footer-rsvp {
+    text-align: center;
+    background: var(--dc-green-dark);
+    margin: 0 -2rem -6rem;
+    /* Bleed to bottom */
+    padding: 6rem 2rem;
+}
+
+.dc-rsvp-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.dc-rsvp-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .dc-rsvp-details {
+        flex-direction: row;
+        justify-content: center;
+        gap: 4rem;
+    }
+}
+
+.dc-detail-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dc-dt-lbl {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+}
+
+.dc-dt-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.dc-btn-rsvp {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dc-btn-rsvp:hover {
+    background: white;
+    color: var(--dc-green-dark);
+}

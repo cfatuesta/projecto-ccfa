@@ -1,0 +1,27 @@
+.brands {
+    margin: 4em;
+}
+
+.brand-img {
+    width: 150px;
+}
+
+.brand-name {
+    text-transform: uppercase;
+}
+
+@media (max-width: 599px) {
+    .brands {
+        margin: 2em 1em;
+        text-align: center;
+        display: flex;
+        /* Assuming flex container is needed or already there in parent, but brands class suggests container */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .brand-img {
+        width: 100px;
+        margin: 1em;
+    }
+}

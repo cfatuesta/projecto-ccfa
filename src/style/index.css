@@ -1,0 +1,77 @@
+:root {
+    --page-padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --page-padding: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --page-padding: 5vw;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    background-color: rgb(242, 239, 235);
+    color: black;
+    line-height: 1.5;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+}
+
+.founders {
+    display: flex;
+}
+
+.founder {
+    max-width: 200px;
+    justify-content: center;
+
+}
+
+.founder img {
+    border-radius: 5px;
+    width: 90%;
+    flex-shrink: unset;
+
+}
+
+/* Sticky Footer Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+body {
+    min-height: 100vh;
+    height: auto;
+    overflow-x: hidden;
+    /* prevent horizontal scroll from 100vw */
+}

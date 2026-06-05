@@ -1,0 +1,372 @@
+/* refined-auth.css - Layout Fixes */
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+.auth-page-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background-color: #f4f0eb;
+    width: 100%;
+    /* Ensure it sits below header if header is fixed/sticky, or standalone */
+    /* If Layout adds header, this might need top padding or to be fullscreen overlay */
+    padding-top: 80px;
+    /* Assuming header height approx 80px */
+    box-sizing: border-box;
+}
+
+/* --- SIDEBAR --- */
+.auth-sidebar {
+    width: 40%;
+    /* Increase width slightly to balance */
+    background-color: #7e2d96;
+    background-image:
+        linear-gradient(135deg, rgba(126, 45, 150, 0.9) 0%, rgba(88, 28, 105, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1552674605-46f5c8833984?q=80&w=2670&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    color: white;
+    overflow: hidden;
+}
+
+.auth-brand-tag {
+    align-self: flex-start;
+    background: white;
+    color: #1a1a1a;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 2px;
+    margin-bottom: auto;
+    /* Push content down */
+}
+
+.sidebar-content {
+    /* Position "JOIN THE" properly */
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    /* Better scaling */
+    font-weight: 800;
+    line-height: 0.85;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.hero-footer {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: left;
+    /* Align with content */
+    opacity: 0.8;
+    margin-top: 4rem;
+}
+
+
+/* --- RIGHT CONTENT --- */
+.auth-form-container {
+    flex: 1;
+    width: 60%;
+    /* Reduce padding significantly to prevent cutoff */
+    padding: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f4f0eb;
+    color: #1a1a1a;
+}
+
+.form-header {
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    /* constrain width for readability */
+}
+
+.subtitle {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #ff6b4a;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.main-title {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    /* Responsive title */
+    font-weight: 700;
+    line-height: 1.1;
+    color: #000;
+    letter-spacing: -1px;
+}
+
+/* Form Fields */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 600px;
+    /* Constrain form width */
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.form-group input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    font-family: 'Jost', sans-serif;
+    border-radius: 0;
+    width: 100%;
+    /* Ensure full width */
+}
+
+.form-group input::placeholder {
+    color: #dcdcdc;
+    font-weight: 400;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+
+/* --- SLIDER SECTION --- */
+.level-selector {
+    margin: 1rem 0 3rem;
+}
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.level-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.pro-badge {
+    background: black;
+    color: white;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+.slider-wrapper {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.real-slider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    z-index: 20;
+    cursor: pointer;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+.visual-track {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg,
+            #22d3ee 0%,
+            #facc15 25%,
+            #fb923c 50%,
+            #a855f7 75%,
+            #ec4899 100%);
+    border-radius: 2px;
+    position: relative;
+}
+
+.visual-thumb {
+    position: absolute;
+    top: 50%;
+    left: var(--thumb-pos, 50%);
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 0 2px white;
+    transition: left 0.1s;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    position: relative;
+}
+
+.slider-label-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+}
+
+.slider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+.slider-text {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #bbb;
+    font-weight: 500;
+    text-align: center;
+}
+
+.slider-label-item.active .slider-text {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+
+/* --- BUTTON --- */
+.submit-btn {
+    background: #ff2b55;
+    color: white;
+    border: none;
+    padding: 1.5rem;
+    width: 100%;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(255, 43, 85, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 45px rgba(255, 43, 85, 0.35);
+}
+
+.google-btn {
+    background: white;
+    color: #757575;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-family: 'Jost', sans-serif;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.google-btn:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legal-text {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.55rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .auth-page-container {
+        flex-direction: column;
+        padding-top: 80px;
+    }
+
+    .auth-sidebar {
+        width: 100%;
+        min-height: 280px;
+        padding: 2rem;
+    }
+
+    .sidebar-content {
+        margin-top: 1.5rem;
+    }
+
+    .auth-form-container {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
