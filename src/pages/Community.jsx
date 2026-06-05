@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/community.css';
-import communityImg from '../images/community image.JPEG';
+import communityImg from '../images/community image.jpeg';
 
 export default function Community() {
     return (
